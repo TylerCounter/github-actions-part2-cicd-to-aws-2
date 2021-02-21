@@ -27,23 +27,23 @@ jobs:
        
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      
-      - name: Git clone our repository 
-        uses: actions/checkout@v1
-
-      - name: create ZIP deployment package
-        run: zip-r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
-
-      - name: configure my aws credentils 
-        uses: aws-actions/configure-aws-credentials@v1
-        with: 
-          aws-access-key-id : ${{ secrets.MY_AWS_ACCESS_KEY }}
-          aws-secret-key-id : ${{ secrets.MY_AWS_SECRET_KEY }}
-          aws-region        : ${{ env.AWS-REGION_NAME }} 
-      
-      - name : copy our deployment package to s3 bucket
-        run: aws s3 cp ${{env.DEPLOY_PACKAGE_NAME}} s3://${{EB_PACKAGE_S3_BUCKET_NAME}}/
-
-      - name: print the nice mesage on completion of CI Pipeline 
-        run: echo "CI pipeline part finihed succesfully"
+      steps:
+        
+        - name: Git clone our repository 
+          uses: actions/checkout@v1
+  
+        - name: create ZIP deployment package
+          run: zip-r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+  
+        - name: configure my aws credentils 
+          uses: aws-actions/configure-aws-credentials@v1
+          with: 
+            aws-access-key-id : ${{ secrets.MY_AWS_ACCESS_KEY }}
+            aws-secret-key-id : ${{ secrets.MY_AWS_SECRET_KEY }}
+            aws-region        : ${{ env.AWS-REGION_NAME }} 
+        
+        - name : copy our deployment package to s3 bucket
+          run: aws s3 cp ${{env.DEPLOY_PACKAGE_NAME}} s3://${{EB_PACKAGE_S3_BUCKET_NAME}}/
+  
+        - name: print the nice mesage on completion of CI Pipeline 
+          run: echo "CI pipeline part finihed succesfully"
