@@ -43,7 +43,7 @@ jobs:
             aws-region        : ${{ env.AWS-REGION_NAME }} 
         
         - name : copy our deployment package to s3 bucket
-          run: aws s3 cp ${{env.DEPLOY_PACKAGE_NAME}} s3://${{EB_PACKAGE_S3_BUCKET_NAME}}/
+          run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://${{ EB_PACKAGE_S3_BUCKET_NAME}}/
   
         - name: print the nice mesage on completion of CI Pipeline 
           run: echo "CI pipeline part finihed succesfully"
