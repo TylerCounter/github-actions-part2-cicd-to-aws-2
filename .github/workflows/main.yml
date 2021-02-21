@@ -10,7 +10,7 @@ env:
   AWS_REGION_NAME          : "us-east-1"
 
 
-# Controls when the action will run. 
+# Controls when the action will run 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
