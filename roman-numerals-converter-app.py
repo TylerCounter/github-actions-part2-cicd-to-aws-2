@@ -13,7 +13,7 @@ def convert(decimal_num):
 
 @app.route('/', methods=['GET'])
 def main_get():
-    return render_template('index.html', developer_name='Tyler- mentor', not_valid=False)
+    return render_template('index.html', developer_name='Tyler', not_valid=False)
 
 @app.route('/', methods=['POST'])
 def main_post():
